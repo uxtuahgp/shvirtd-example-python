@@ -85,7 +85,7 @@ def index(request: Request, ip_address: Optional[str] = Depends(get_client_ip)):
         with get_db_connection() as db:
             cursor = db.cursor()
             query = "INSERT INTO %s (request_date, request_ip) VALUES (%s, %s)"
-            values = (db_table, current_time, final_ip)
+            values = ({db_table}, current_time, final_ip)
             cursor.execute(query, values)
             db.commit()
             cursor.close()
@@ -122,7 +122,7 @@ def get_requests():
         with get_db_connection() as db:
             cursor = db.cursor()
             query = "SELECT id, request_date, request_ip FROM %s ORDER BY id DESC LIMIT 50"
-            values = (db_table)
+            values = ({db_table})
             cursor.execute(query)
             records = cursor.fetchall()
             cursor.close()
