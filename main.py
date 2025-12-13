@@ -13,7 +13,7 @@ db_host = os.environ.get('DB_HOST', '127.0.0.1')
 db_user = os.environ.get('DB_USER', 'app')
 db_password = os.environ.get('DB_PASSWORD', 'very_strong')
 db_name = os.environ.get('DB_NAME', 'example')
-db_table = os.environ.get('DB_TABLE', 'requests') 
+db_table = os.environ.get('DB_TABLE', 'requests')
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
