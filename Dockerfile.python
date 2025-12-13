@@ -2,7 +2,7 @@ FROM python:3.12-slim
 
 #  Ваш код здесь #
 COPY . .
-RUN DEBIAN_FRONTEND=noninteractive && apt update && apt install -y uvicorn python3-venv
+RUN apt update && apt install -y uvicorn python3-venv
 RUN python3 -m venv venv
 RUN . venv/bin/activate && pip3 install -r requirements.txt
 RUN cat venv/bin/activate |tee /root/.profile
