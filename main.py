@@ -31,7 +31,7 @@ async def lifespan(app: FastAPI):
             """
             cursor.execute(create_table_query)
             db.commit()
-            print("Соединение с БД установлено и таблица 'requests' готова к работе.")
+            print("Соединение с БД установлено и таблица "+db_table+" готова к работе.")
             cursor.close()
     except mysql.connector.Error as err:
         print(f"Ошибка при подключении к БД или создании таблицы: {err}")
