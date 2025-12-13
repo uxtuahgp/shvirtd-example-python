@@ -5,6 +5,7 @@ COPY . .
 RUN DEBIAN_FRONTEND=noninteractive && apt update && apt install -y uvicorn 
 RUN python3 -m venv venv
 RUN . venv/bin/activate && pip3 install -r requirements.txt
+RUN cat venv/bin/activate |tee /root/.profile
 # Запускаем приложение с помощью uvicorn, делая его доступным по сети
 # ENTRYPOINT [". venv/bin/activate"]
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"] 
