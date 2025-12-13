@@ -5,9 +5,5 @@ COPY . .
 RUN DEBIAN_FRONTEND=noninteractive && apt update && apt install -y uvicorn 
 RUN python3 -m venv venv
 RUN . venv/bin/activate && pip3 install -r requirements.txt
-ENV DB_HOST='127.0.0.1'
-ENV DB_USER='app'  
-ENV DB_PASSWORD='very_strong'
-ENV DB_NAME='example'
 # Запускаем приложение с помощью uvicorn, делая его доступным по сети
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"] 
