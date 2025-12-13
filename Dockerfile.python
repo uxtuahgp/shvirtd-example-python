@@ -5,4 +5,5 @@ COPY . .
 RUN apt update && apt install -y uvicorn 
 RUN pip3 install -r requirements.txt
 # Запускаем приложение с помощью uvicorn, делая его доступным по сети
+ENTRYPOINT sleep 30
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"] 
