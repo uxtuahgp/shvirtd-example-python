@@ -1,8 +1,8 @@
 FROM python:3.12-slim
 
 #  Ваш код здесь #
-COPY requirements.txt wait.sh ./
-RUN chmod 755 ./wait.sh && apt update && apt install -y uvicorn 
+COPY . .
+RUN chmod 755 wait.sh && apt update && apt install -y uvicorn 
 RUN pip3 install -r requirements.txt
 COPY . .
 # Запускаем приложение с помощью uvicorn, делая его доступным по сети
