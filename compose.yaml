@@ -16,8 +16,11 @@ services:
       - ./initdb:/docker-entrypoint-initdb.d
         #    ports:
         #- "3306:3306"
-  app:
-    image: docker-2:latest
+  web:
+    build:
+      context: .
+      dockerfile: Docckerfile.python
+    image: cr.yandex/crpqmq2ssc6b6lcodvpp/docker-2:latest
     restart: always
     entrypoint: ["./wait.sh"]
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"] 
