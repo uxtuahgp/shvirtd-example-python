@@ -20,7 +20,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Docckerfile.python
+      dockerfile: Dockerfile.python
     image: cr.yandex/crpqmq2ssc6b6lcodvpp/docker-2:latest
     restart: always
 #    entrypoint: ["./wait.sh"]
