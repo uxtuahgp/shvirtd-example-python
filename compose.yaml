@@ -4,6 +4,10 @@ services:
   db:
     image: mysql:latest
     restart: always
+    healthcheck:
+      test: "echo 'show databases' | mysql -hlocalhost -u${MYSQL_USER} -p${MYSQL_PASSWORD} |grep ${MYSQL_DATABASE}"
+      timeout: 5s
+      retries: 3
     networks:
       - backend
     environment: 
@@ -21,6 +25,9 @@ services:
     restart: always
     entrypoint: ["./wait.sh"]
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"] 
+    depends_on:
+      db:
+        condition: service_healthy
     networks:
       backend:
         ipv4_address: 172.20.0.5
