@@ -1,8 +1,6 @@
 .env
   *.pdf
 Dockerfile*
-compose.yaml
-proxy.yaml
-initdb
+*.yaml
 nginx
 haproxy
