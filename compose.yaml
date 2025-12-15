@@ -7,10 +7,7 @@ services:
     networks:
       - backend
     environment: 
-      - MYSQL_ROOT_PASSWORD=rootpass
-      #- MYSQL_DATABASE=example
-      #- MYSQL_USER=app
-      #- MYSQL_PASSWORD=very_strong 
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes:
       - ./data:/var/lib/mysql
       - ./initdb:/docker-entrypoint-initdb.d
@@ -33,7 +30,7 @@ services:
       -  5000:5000
     environment:
       - DB_HOST=db
-      - DB_USER=app  
-      - DB_PASSWORD=very_strong
-      - DB_NAME=example
+      - DB_USER=${MYSQL_USER}
+      - DB_PASSWORD=${MYSQL_PASSWORD}
+      - DB_NAME=${MYSQL_DATABASE}
       - DB_TABLE=webrequests
