@@ -15,15 +15,15 @@ services:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
-#    volumes:
-#      - data:/var/lib/mysql
+    volumes:
+      - data:/var/lib/mysql
   web:
     build:
       context: .
       dockerfile: Docckerfile.python
     image: cr.yandex/crpqmq2ssc6b6lcodvpp/docker-2:latest
     restart: always
-    entrypoint: ["./wait.sh"]
+#    entrypoint: ["./wait.sh"]
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"] 
     depends_on:
       db:
