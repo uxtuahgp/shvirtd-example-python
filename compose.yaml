@@ -6,8 +6,8 @@ services:
     restart: always
     healthcheck:
       test: "echo 'show databases' | mysql -hlocalhost -u${MYSQL_USER} -p${MYSQL_PASSWORD} |grep ${MYSQL_DATABASE}"
-      timeout: 5s
-      retries: 3
+      timeout: 3s
+      retries: 20
     networks:
       - backend
     environment: 
