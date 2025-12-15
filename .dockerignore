@@ -3,4 +3,8 @@
 Dockerfile*
 compose.yaml
 proxy.yaml
-  
+initdb
+nginx
+haproxy
+.env
+
