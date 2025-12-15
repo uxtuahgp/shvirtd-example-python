@@ -6,5 +6,3 @@ proxy.yaml
 initdb
 nginx
 haproxy
-.env
-
